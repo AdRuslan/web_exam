@@ -41,5 +41,6 @@ import Preloader from "../components/Preloader";
     created() {
       this.getHomePage();
     },
+
   }
 </script>

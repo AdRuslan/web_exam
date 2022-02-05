@@ -13,6 +13,7 @@
 
       <v-spacer></v-spacer>
 
+      <Widget/>
       <v-btn
           class="mx-2"
           fab
@@ -62,8 +63,11 @@
 </template>
 
 <script>
+import Widget from "./Widget";
+
 export default {
   name: "Header",
+  components: {Widget},
 
   data: () => ({
     drawer: false,

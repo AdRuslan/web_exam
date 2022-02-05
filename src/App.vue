@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header :title="title"/>
+    <Header/>
     <v-main>
       <v-container>
         <router-view/>
@@ -23,14 +23,11 @@ export default {
   },
 
   data: () => ({
-    title: 'Ruslan'
   }),
 
-  beforeCreate() {
-  },
 
   created() {
-    this.$store.dispatch('GET_ARTICLES');
+    this.$store.dispatch('GET_ADS_QUANTITY');
   }
 };
 </script>

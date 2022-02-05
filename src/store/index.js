@@ -6,22 +6,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        articles: [],
+        ADS_QUANTITY: {},
     },
     getters: {
-        GET_ARTICLES(state) {
-            return state.articles;
+        GET_ADS_QUANTITY(state) {
+            return state.ADS_QUANTITY;
         },
     },
     mutations: {
-        SET_ARTICLES(state, payload) {
-            state.articles = payload;
+        SET_ADS_QUANTITY(state, payload) {
+            state.ADS_QUANTITY = payload;
         },
     },
     actions: {
-        async GET_ARTICLES({ commit }) {
-            let {data} = await axios.get("http://demo-api.vsdev.space/api/articles");
-            commit("SET_ARTICLES", data);
+        async GET_ADS_QUANTITY({ commit }) {
+            let {data} = await axios.get("https://demo-api.vsdev.space/api/brom/left_widget");
+            console.log(data);
+            commit("SET_ADS_QUANTITY", data);
         },
     },
 });
