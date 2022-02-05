@@ -1,6 +1,6 @@
 <template>
   <v-card
-      :color="item.type === 'car' ? 'blue-grey lighten-4' : 'green lighten-1'"
+      :color="item.type === 'car' ? 'blue-grey lighten-5' : 'amber lighten-1'"
       class="mx-auto"
       max-width="344"
   >
@@ -22,7 +22,7 @@
 
     <v-card-actions>
       <v-btn
-          color="red lighten-2"
+          color="red"
           text
       >
         Больше
