@@ -1,26 +1,38 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <a @click="$router.back()">Назад</a>
-    <a @click="$router.push('/contacts')">Контакты</a>
-    <div>
-      <Preloader v-if="!articles.length"/>
-      <p v-else>{{ articles }}</p>
-    </div>
+    <h1 class="text-center">О нас</h1>
+    <Preloader v-if="!aboutText && !aboutImage"/>
+      <p>{{ aboutText }}</p>
   </div>
 </template>
 
 <script>
 import Preloader from "../components/Preloader";
+import axios from "axios";
 
 export default {
   components: {Preloader},
 
-  computed: {
-    articles() {
-      return this.$store.getters.GET_ARTICLES;
-    }
-  }
+  data() {
+    return {
+      aboutText: '',
+      aboutImage: '',
+    };
+  },
+
+  methods: {
+    async getAboutPage() {
+      let {data} = await axios.get(
+          `https://demo-api.vsdev.space/api/brom/about_page`
+      );
+      this.aboutText = data.text;
+      this.aboutText = data.text;
+    },
+  },
+
+  created() {
+    this.getAboutPage();
+  },
 
 };
 

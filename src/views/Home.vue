@@ -1,13 +1,15 @@
 <template>
   <div>
     <h1 class="text-center">Главная страница</h1>
-    <v-img
-        max-height="700"
-        class="rounded-lg my-5"
-        src="/img/home_page_img.jpg"
-        alt="home"></v-img>
-    <Preloader v-if="!mainText"/>
-    <p v-else>{{mainText}}</p>
+    <Preloader v-if="!mainText && !mainImage"/>
+    <template v-else>
+      <v-img
+          max-height="700"
+          class="rounded-lg my-5"
+          :src="mainImage"
+          alt="home"></v-img>
+      <p>{{mainText}}</p>
+    </template>
   </div>
 </template>
 
@@ -22,20 +24,22 @@ import Preloader from "../components/Preloader";
     data() {
       return {
         mainText: '',
+        mainImage: '',
       }
     },
 
     methods: {
-      async getComments() {
+      async getHomePage() {
         let { data } = await axios.get(
-            `http://demo-api.vsdev.space/api/brom/home_page`
+            `https://demo-api.vsdev.space/api/brom/home_page`
         );
         this.mainText = data.text;
+        this.mainImage = data.image;
       },
     },
 
     created() {
-      this.getComments();
+      this.getHomePage();
     },
   }
 </script>
