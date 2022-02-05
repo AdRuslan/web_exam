@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1 class="text-center">О нас</h1>
+    <h1 class="text-center mb-5">О нас</h1>
     <Preloader v-if="!aboutText && !aboutImage"/>
       <p>{{ aboutText }}</p>
   </div>

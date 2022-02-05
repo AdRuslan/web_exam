@@ -21,7 +21,6 @@ export default new Vuex.Store({
     actions: {
         async GET_ADS_QUANTITY({ commit }) {
             let {data} = await axios.get("https://demo-api.vsdev.space/api/brom/left_widget");
-            console.log(data);
             commit("SET_ADS_QUANTITY", data);
         },
     },

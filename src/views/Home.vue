@@ -8,7 +8,7 @@
           class="rounded-lg my-5"
           :src="mainImage"
           alt="home"></v-img>
-      <p>{{mainText}}</p>
+      <p v-html="mainText"></p>
     </template>
   </div>
 </template>
